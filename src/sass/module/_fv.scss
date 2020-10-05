@@ -1,0 +1,89 @@
+@import "../setting/config";
+//extend
+%fv__txt {
+    font-size: 2rem;
+    color: #fff;
+    font-weight: bold;
+    line-height: 0.85;
+    margin-bottom: 10px;
+}
+
+%fv-bg {
+    background-position: center 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 76%;
+    height: 86%;
+}
+
+%fv-wrapper {
+    height: 100vh;
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: #222;
+        width: 52%;
+        height: 100%;
+        z-index: -1;
+    }
+}
+
+.fv {
+
+    &-wrapper {
+        @extend %fv-wrapper;
+        
+        &--half {
+            @extend %fv-wrapper;
+            height: 60vh;
+        }
+    }
+
+    &-bg {
+        @extend %fv-bg;
+        background-image: url("../img/fv-bg@2x.png");
+
+        &--aboutpage {
+            @extend %fv-bg;
+            background-image: url("../img/about/fv-bg@2x.png");
+        }
+        &--contactpage {
+            @extend %fv-bg;
+            background-image: url("../img/contact/fv-bg@2x.png");
+        }
+
+    }
+
+    &-copy {
+        position: absolute;
+        top: 200px;
+        right: 16%;
+        @include mq(md){
+            right: 5%;
+        }
+    }
+
+    &__txt {
+        @extend %fv__txt;
+        
+        &--en {
+            @extend %fv__txt;
+            font-family: $ff-accent;
+        }
+        
+        &--enBig {
+            @extend %fv__txt;
+            font-family: $ff-accent;
+            font-weight: 800;
+            font-size: 7.2rem;
+            line-height: 1.2;
+            text-transform: uppercase;
+            @include mq(sm) {
+                font-size: 4.8rem;
+            }
+        }
+    }
+}

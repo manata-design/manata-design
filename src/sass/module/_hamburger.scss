@@ -1,0 +1,86 @@
+@import "../setting/config";
+@import "../mixin/responsive";
+
+.hamburger {
+    border: transparent;
+    background: transparent;
+    outline: none;
+
+    &-wrapper {
+        display: block;
+        display: flex;
+        align-items: center;
+        position: relative;
+        z-index: 999;
+    }
+
+    &__bar {
+        position: relative;
+        width: 25px;
+        height: 2px;
+        background-color: #fff;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #fff;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #fff;
+        }
+
+    }
+
+    &__txt {
+        color: #fff;
+        font-size: 1rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-family: $ff-accent;
+        letter-spacing: 0.005em;
+        margin-left: 8px;
+    }
+}
+
+//jQuery アクション
+.hamburger.open {
+    .hamburger__bar {
+        background-color: transparent;
+        &::before {
+            top: 0;
+            transform: rotate(-45deg);
+        }
+        &::after {
+            top: 0;
+            transform: rotate(45deg);
+        }
+
+    }
+}
+
+.hamburger.black {
+    .hamburger__bar {
+        background-color: $txt-color;
+        &::before {
+            background-color: $txt-color;
+        }
+        &::after {
+            background-color: $txt-color;
+        }
+
+    }
+
+    .hamburger__txt {
+        color: $txt-color;
+    }
+}
